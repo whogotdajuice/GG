@@ -1,0 +1,796 @@
+/*****************************************
+****************MAIN CLASSES**************
+*****************************************/
+
+
+html, body {
+	color: var(--white);
+	font-family: Roboto, Arial, Helvetica, sans-serif;
+	margin: 0;
+	width: 100%;
+    	height: 100%;
+	min-height: 100%;
+	box-sizing: border-box;}
+
+html {
+	font-size: 15px;}
+
+body {
+	background: url('https://i.imgur.com/zXK4iTd.png') bottom;
+	background-size: cover;
+	background-attachment: fixed;
+	position: absolute;
+	background-position: top;
+	font-size: 13px;}
+
+#wrapper {
+    width: 100%;
+    min-height: 100%;
+    margin: 0 auto;
+    position: relative;
+    padding-bottom: 50px;
+    height: auto !important;}
+
+#content {
+	width: 1100px;
+	margin: 0 auto 35px;
+	overflow: hidden;
+	position: relative;
+	top: 30px;
+	height: 100%;
+	min-height: 100%;
+	padding:0 .5% 10px;
+	border-radius: 10px;
+	box-shadow: 0px 0px 10px var(--black);
+	background: linear-gradient(to bottom,
+		var(--mediumBlue50) 0%,
+		var(--darkBlue50) 23%,
+		var(--mediumBlue50) 51%,
+		var(--darkBlue50) 73%,
+		var(--mediumBlue50) 100%);}
+
+#content li {
+	padding: 2px 0;}
+
+#content li:first-of-type {
+	padding-top: 0px;}
+
+#content li:last-of-type {
+	padding-bottom: 0px;}
+
+@media screen and (max-width: 1150px) and (min-width: 1001px) {
+	#content {
+		width: 1000px;}
+}
+
+a {
+	color: var(--lightBlue);
+	text-decoration: none;
+	cursor: pointer;}
+
+a:hover {
+	color: var(--white);
+	text-decoration: underline;}
+
+p {
+    margin: 0;
+    padding: 5px 0px;
+	line-height: 1.5em;}
+
+ul, ol {
+	margin-bottom: 0px;}
+
+blockquote, pre {
+	background-color: var(--mediumBlue);
+	padding: 15px;
+	width: 75%;
+	margin: 0 auto -5px auto;
+	color: var(--white);
+	filter: drop-shadow(2px 2px 3px var(--black));
+	margin: 20px auto;}
+
+blockquote pre {
+	filter: none;}
+
+.header {
+	width: 100%;}
+
+.header h2, 
+.thin h2:first-of-type,
+#rules h3,
+#chat h3 {
+  	border-bottom: 1px solid var(--lightBlue);
+	padding-bottom: 0px;
+	margin: 10px 0px 0px 3px;
+	font-size: 1.5em;
+	height: auto;
+	min-height: 22px;
+	width: 100%;}
+
+.bold {
+	font-weight: bold;}
+
+.username_badges img {
+    max-height: 16px;
+    vertical-align: middle;
+    margin: 0 2px;
+    image-rendering: crisp-edges;}
+
+span[alt="Happy Birthday!"] {
+	margin: 0 2px;
+}
+
+#userinfo_username .username_badges {
+	vertical-align: top;}
+
+.avatar {
+    min-width: 150px;
+    padding: 0;}
+
+.avatar.pixelart {
+     image-rendering: -moz-crisp-edges;
+     image-rendering: -o-crisp-edges;
+     image-rendering: -webkit-optimize-contrast;
+     image-rendering: pixelated;
+     -ms-interpolation-mode: nearest-neighbor;}
+
+#clickable:hover {
+    cursor: pointer;}
+
+/* No cover art default image */
+img[src="https://gazellegames.net/image.php?c=1&i=https%3A%2F%2Fgazellegames.net%2Fstatic%2Fcommon%2Fnoartwork%2Fgames.png"] {
+	opacity: .65;}
+
+/* Fixes red throughout the site */
+span[style="color:red;font-weight:700;"],
+span[style="color: red;"] {
+	color: var(--red) !important; }
+
+span[style="color: #ff0000;"] {
+	color: var(--darkRed) !important;}
+
+
+/*****************************************
+*************CUSTOM FONTS*****************
+*****************************************/
+
+@font-face {
+    font-family: 'Roboto';
+    src: url(../fonts/roboto-regular.ttf);
+    src: url(../fonts/roboto-regular.woff);}
+
+@font-face {
+	font-family: "Roboto";
+	src: url(../fonts/roboto-italic.ttf);
+	src: url(../fonts/roboto-italic.woff);
+	font-style:italic;}
+
+@font-face {
+	font-family: "Roboto";
+	src: url(../fonts/roboto-bold.ttf);
+	src: url(../fonts/roboto-bold.woff);
+	font-weight:bold;}
+
+@font-face {
+    font-family: "mario";
+    src: url(../fonts/supermario.ttf) format('truetype');
+	src: url(../fonts/supermario.woff) format('woff');}
+
+/*****************************************
+******************TABLES******************
+*****************************************/
+
+.box, table {
+	background: url('../images/smokeybackground.jpg');
+	background-size: cover;}
+
+table {
+	width: 100%;
+	border-collapse: collapse}
+
+.box {
+	padding: 10px;
+	padding-bottom: 25px;
+	margin-top: 10px;
+	box-sizing: border-box;}
+
+.spoilerbox {
+    background-color: var(--mediumBlue);
+    border: 1px dotted var(--darkBlue2);
+    margin-left: 10px;
+    margin-top: 10px;
+    padding: 10px;}
+
+blockquote.spoiler {
+	margin-left: 10px;}
+
+table table,
+.box table {
+	background: none;}
+
+td {
+	word-wrap: break-word;}
+
+.rowa, .rowb, .row_a, .row_b {height:35px;}
+.rowa td, .row_a td {background-color: var(--rowa);}
+.rowb td, .row_b td {background-color: var(--rowb);}
+
+/*****************************************
+****************INPUT STYLES**************
+*****************************************/
+
+input, select, button {
+	background: var(--mediumBlue);
+	border-radius: 3px;
+	color: var(--white);
+	border: none;
+	padding-left: 5px;
+	height: 20px;
+	vertical-align: middle;
+	padding-bottom: 1px;}
+
+select {
+	min-width: 132px;}
+
+.select2-dropdown {
+	z-index: 1;}
+
+pre input,
+blockquote input {
+	background-color: var(--darkBlue)}
+
+textarea {
+	background: var(--mediumBlue);
+	border-radius:3px;
+	color: var(--white);
+	border: none;
+	padding-left:5px;
+	vertical-align: middle;
+	font-family: roboto;
+	margin-left: 5px;
+	font-size: 1.1em;}
+
+.submit input {
+	border-radius: 0px;
+	margin: 0 2px;
+	min-width: 75px;
+	height: 25px;
+	box-shadow: var(--black) 0px 0px 5px;}
+
+input[type="submit"] {
+	text-align: center !important;}
+
+.label {
+	width:100px;}
+
+/* Fixing select for just Firefox on Mac */
+@supports (-moz-osx-font-smoothing: auto) {
+  select {
+    /* Disable unstyled button */
+    -moz-appearance: none;
+
+    /* Add custom dropdown button */
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAA8CAMAAABGivqtAAABS2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxNDAgNzkuMTYwNDUxLCAyMDE3LzA1LzA2LTAxOjA4OjIxICAgICAgICAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIi8+CiA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgo8P3hwYWNrZXQgZW5kPSJyIj8+LUNEtwAAAARnQU1BAACxjwv8YQUAAAABc1JHQgCuzhzpAAAASFBMVEUAAAD////////////////////////////////////////////////////////////////////////////////////////////neHiwAAAAF3RSTlMA+tpZ7jsKEyN5vQKdngO+WNkJ+Trveoxyq98AAADiSURBVDjL7ZXJEsIgEETJAglhyarz/3+qFSzZhkFz8OS79unV0A1jEZwzAtGugojvALKcjg1AM5ZSO8OTyRbiDk46PB16F98GNDbwQmMphzccU/bxumWxhACJKXv2RN5OEDGpKF4gYcGUPX0oryFDo8qIfKjsaQWmnMnHyh53eXdljFn5K2N0mHIkb4DAsD+/hzyJrh00b0D0HJgqPibXJPop1h4y29Aa+AFES3R8WsFagfMuRPVnKhmP2X4zPbXhiuRbQY7mQV7ekIPdD1fm/iWf7GUov1NfzSkvr39z2Sf5AEOLPxXnui6+AAAAAElFTkSuQmCC);
+    background-repeat: no-repeat;
+    background-position: center right 4px;
+    background-size: 5px;
+
+    /* Chrome and Safari have smoother border-radius */
+    border-radius: 5px;}
+
+  /* Remove ugly outline when focused */
+  select::-moz-focus-inner {
+    	outline: none !important;}
+
+  select:-moz-focusring {
+    	color: transparent;
+    	text-shadow: 0 0 0 var(--white);}
+
+  /* Fix item display */
+  select option:not(:checked) {
+    	background: var(--mediumBlue);
+    	color: white;}
+
+  select optgroup:not(:checked) {
+    	color: var(--black);}
+}
+
+/*****************************************
+*******COLUMN HEADERS / FOOTERS**********
+*****************************************/
+
+.colhead, .colhead_dark, .head {
+	background-color: var(--darkBlue);
+	margin: 0px 10px 10px -10px;
+	padding: 5px 5px 5px 15px;
+	background: linear-gradient(var(--mediumBlue), var(--darkBlue));
+	box-shadow: -3px 3px 5px var(--black);
+	border-radius: 5px;
+	font-size: 1.3em;
+	width: 98%;}
+
+.colhead ul, .colhead_dark ul, .head ul {
+	padding: 0;
+	margin: 0px;
+	list-style:none;}
+
+.coltotals {
+	background-color: var(--darkBlue);
+	font-size: 1.1em;
+	border-top: 1px solid var(--white);}
+
+.coltotals td {
+	padding: 10px 0 10px 0;}
+
+/*****************************************
+**********BBCODE and HEADERS**************
+*****************************************/
+
+#bb_bold, #bb_und, #bb_ita,
+#bb_img, #bb_link, #bb_strk,
+#bb_h1, #bb_h2, #bb_h3, #bb_h4, #bb_h5, #bb_h6,
+#bb_color, #bb_tex, #bb_quote, #bb_list, #bb_spoil,
+#bb_cent, #bb_lef, #bb_righ,
+#bb_pre, #bb_youtube  {
+	display: inline-block;
+	height: 16px;
+	width: 16px;}
+
+span.size1 {font-size: 0.75em; line-height: 1em}
+span.size2, h4 {font-size: 1em; line-height: 1em}
+span.size3, h3 {font-size: 1.25em; line-height: 1em}
+span.size4, h2 {font-size: 1.5em; line-height: 1em}
+span.size5 {font-size: 1.75em; line-height: 1em}
+span.size6 {font-size: 2em; line-height: 1em}
+span.size7 {font-size: 2.25em; line-height: 1em}
+span.size8 {font-size: 2.5em; line-height: 1em}
+span.size9 {font-size: 2.75em; line-height: 1em}
+span.size10 {font-size: 3em; line-height: 1em}
+	
+/* ../images, videos, twitter with size=4 code will float left, size=5 will float right */
+span.size4 iframe,
+span.size4 .twitter_post,
+span.size4 video,
+span.size4 img {
+    float: left;
+    padding: 0px 15px 15px 0px !important;
+    box-shadow: none !important;}
+span.size5 iframe,
+span.size5 .twitter_post,
+span.size5 video,
+span.size5 img {
+    float: right;
+    padding: 0px 0px 15px 15px !important;
+    box-shadow: none !important;}
+
+span.size4 .twitter-tweet {
+    padding: 0px 15px 15px 0px !important;}
+span.size5 .twitter-tweet {
+    padding: 0px 0px 15px 15px !important;}
+
+#bb_bold {background-image: URL('../images/icons/text_bold.png');}
+#bb_und {background-image: URL('../images/icons/text_underline.png');}
+#bb_ita {background-image: URL('../images/icons/text_italic.png');}
+#bb_img {background-image: URL('../images/icons/images.png');}
+#bb_link {background-image: URL('../images/icons/link.png');}
+#bb_strk {background-image: URL('../images/icons/text_strikethrough.png');}
+#bb_h1 {background-image: URL('../images/icons/text_heading_1.png');}
+#bb_h2 {background-image: URL('../images/icons/text_heading_2.png');}
+#bb_h3 {background-image: URL('../images/icons/text_heading_3.png');}
+#bb_h4 {background-image: URL('../images/icons/text_heading_4.png');}
+#bb_h5 {background-image: URL('../images/icons/text_heading_5.png');}
+#bb_h6 {background-image: URL('../images/icons/text_heading_6.png');}
+#bb_color {background-image: URL('../images/icons/color_wheel.png');}
+#bb_tex {background-image: URL('../images/icons/font.png');}
+#bb_quote {background-image: URL('../images/icons/user_comment.png');}
+#bb_list {background-image: URL('../images/icons/text_list_bullets.png');}
+#bb_spoil {background-image: URL('../images/icons/eye.png');}
+#bb_cent {background-image: URL('../images/icons/text_align_center.png');}
+#bb_lef {background-image: URL('../images/icons/text_align_left.png');}
+#bb_righ {background-image: URL('../images/icons/text_align_right.png');}
+#bb_pre {background-image: URL('../images/icons/page_white_text.png');}
+#bb_youtube {background-image: URL('../images/icons/monitor.png');}
+
+.bbbutt {
+	background-color: #EEEEEE;
+	border:medium solid #365C80;
+	padding: 5px;
+	margin: 5px auto;
+	list-style:none;
+	display: block;
+	cursor: default;
+	width: 550px;}
+
+.bbbutt li {
+	display: inline;
+	margin-right: 2px;}
+
+.bbbutt li a{
+	border: none;
+	display: inline-block;
+	margin-bottom: -2px;}
+
+.bbbutt li select {
+ 	background-color: var(--white);
+	color: var(--black);
+	padding: auto 0;
+	margin: 0;
+	height: auto;}
+
+code {
+    background-color: var(--mediumBlue);
+    padding: 1px 5px;}
+
+blockquote code {
+   outline: 1px solid black;}
+
+/* Border around cells in a bbcode table
+.bbcode_table_div td {
+    border: 1px solid var(--grey);
+    vertical-align: top;
+    padding: 5px 2px;}*/
+
+/*** Image Gallery ***/
+.gallery {
+	display: inline-block;}
+
+ .gallery_slot {
+ 	overflow: hidden;}
+
+ .gallery_main_slot {
+	text-align: center;
+	width: 100%;
+	max-height: 600px;}
+
+ .gallery_row {
+	padding: 0;
+	margin: auto;
+	position: relative;
+	width: 100%;
+	max-height: 150px;
+	white-space: nowrap;
+	overflow: hidden;}
+
+ .gallery_small_slot {
+	display: inline-block;
+	max-height: 80px;
+	margin: 1px;
+	overflow: hidden;}
+
+ .large_row .gallery_small_slot {
+	width: 23%;}
+
+ .small_row .gallery_small_slot {
+	width: 24%;
+	margin: 2px;}
+
+ .gallery_small_slot img {
+	display: block;
+	margin: 0 !important; 
+	padding: 0 !important;}
+
+ .gallery_small_slot.selected {
+	border: 1px solid var(--white);
+	margin: 0;}
+
+/*****************************************
+****************LIGHT BOX*****************
+*****************************************/
+
+.lightbox {
+    position: fixed;
+    text-align: center;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+    padding: 0px;
+    overflow: auto;
+	z-index: 9999999999;}
+
+.lightbox img {
+    border: solid #E1ECF1 2px;
+    background-color: white;
+    max-height: 98%;
+	max-width: 98%;}
+
+.jquery-lightbox-move {
+	z-index: 999999999999999999999999999999 !important}
+
+/*****************************************
+*******************ICONS******************
+*****************************************/
+
+td.cats_col {
+	width: 28px;
+	padding: 15px 10px !important;}
+
+.show_torrents {
+	background-repeat: no-repeat;
+	background-position: 0 -1093px;
+	width: 30px;
+	height: 30px}
+
+.hide_torrents {
+	background-repeat: no-repeat;
+	background-position: 0 -1033px;
+	width: 30px;
+	height: 30px}
+
+.show_torrents_link {
+	display: block;
+	height: 28px;
+	width: 28px;
+	background-image: url('../images/go_last_read.png');
+	background-repeat: no-repeat;
+	background-position: center center;
+	padding-left: 5px;}
+
+/*****************************************
+**************PROGRESS BARS***************
+*****************************************/
+
+/*** Polls ***/
+#progress_bar {
+    margin: 5px auto;
+    padding: 5px;
+    width: 950px;
+    height: 11px;
+    background-color: var(--mediumBlue);
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;}
+
+/*** Large Progress Bars ***/
+.large_progress_bar {
+	height: 20px;
+	width: 80%;
+	position: relative;
+	background: var(--mediumBlue);
+	border-radius: 25px;
+	padding: 5px;
+	margin: 5px auto;
+	box-shadow: inset 0 -1px 1px rgba(255,255,255,0.3);}
+
+.large_progress_bar > span {
+	display: block;
+	height: 100%;
+	position: absolute;
+	top: 0;}
+
+.large_progress_bar .main_bar {
+	border-top-right-radius: 8px;
+	border-bottom-right-radius: 8px;
+	border-top-left-radius: 20px;
+	border-bottom-left-radius: 20px;
+	background-color: #d4f423;
+	background-image: linear-gradient(to bottom, #89a740, #d4f423, #698c11);
+	box-shadow:
+		inset 0 2px 9px  rgba(255,255,255,0.3),
+		inset 0 -2px 6px rgba(0,0,0,0.4);
+	position: relative;
+	z-index: 1;}
+
+.large_progress_bar .main_bar.complete {
+	border-top-right-radius: 20px;
+	border-bottom-right-radius: 20px;}
+
+.large_progress_bar .main_bar {
+	animation: expandWidth 2s;
+	transform-origin: left;}
+
+@keyframes expandWidth {
+	0% { transform: scaleX(0); }
+	100% { transform: scaleY(1); }
+}
+
+/*****************************************
+*********COLLECTIONS / BOOKMARKS**********
+*****************************************/
+
+ul.collage_images li,
+#collage_table td,
+#likesrow td,
+#uploadsrow td,
+#snatchesrow td {
+	/*background-color: var(--black);*/
+	background-color: rgba(0,0,0,.4);
+	background-size: 170px 100%;
+	vertical-align: top;}
+
+ul.collage_images li:empty,
+#collage_table td:empty {
+	display: none;}
+
+/* The more wide than tall platforms */
+#collections img[alt^="Nintendo 64"],
+#bookmarks img[alt^="Nintendo 64"],
+#user img[alt^="Nintendo 64"],
+#collections img[alt^="SNES"],
+#bookmarks img[alt^="SNES"],
+#user img[alt^="SNES"] {
+	height: 110px !important;}
+
+#collections.col_395 ul.collage_images li,
+#collections.col_395 ul.collage_images li a,
+#collections.col_391 ul.collage_images li,
+#collections.col_391 ul.collage_images li a {
+	height: 110px;}
+
+/* The square-ish platforms */
+#collections img[alt^="Nintendo DS"],
+#bookmarks img[alt^="Nintendo DS"],
+#user img[alt^="Nintendo DS"],
+
+#collections img[alt^="Nintendo 3DS"],
+#bookmarks img[alt^="Nintendo 3DS"],
+#user img[alt^="Nintendo 3DS"],
+
+#collections img[alt^="Game Boy"],
+#bookmarks img[alt^="Game Boy"],
+#user img[alt^="Game Boy"],
+
+#collections img[alt^="Game Boy Advance"],
+#bookmarks img[alt^="Game Boy Advance"],
+#user img[alt^="Game Boy Advance"],
+
+#collections img[alt^="Saturn"],
+#bookmarks img[alt^="Saturn"],
+#user img[alt^="Saturn"],
+
+#collections img[alt^="Game Boy Color"],
+#bookmarks img[alt^="Game Boy Color"],
+#user img[alt^="Game BoyColor"],
+
+#collections img[alt^="OST - "],
+#bookmarks img[alt^="OST - "],
+#user img[alt^="OST - "],
+
+#collections img[alt^="Android"],
+#bookmarks img[alt^="Android"],
+#user img[alt^="Android"] {
+	height: 140px !important;}
+
+#collections img[alt^="Nintendo 64"],
+#bookmarks img[alt^="Nintendo 64"],
+#user img[alt^="Nintendo 64"] {
+	height: 140px !important;}
+
+#user div[name="profile_game"] img {
+	height: auto !important}
+
+#collections.col_398 ul.collage_images li, #collections.col_398 ul.collage_images li a,
+#collections.col_2202 ul.collage_images li, #collections.col_2202 ul.collage_images li a,
+#collections.col_281 ul.collage_images li, #collections.col_281 ul.collage_images li a,
+#collections.col_404 ul.collage_images li, #collections.col_404 ul.collage_images li a,
+#collections.col_394 ul.collage_images li, #collections.col_394 ul.collage_images li a,
+#collections.col_393 ul.collage_images li, #collections.col_393 ul.collage_images li a,
+#collections.col_304 ul.collage_images li, #collections.col_304 ul.collage_images li a,
+#collections.col_3624 ul.collage_images li, #collections.col_3624 ul.collage_images li a,
+#collections.col_1062 ul.collage_images li, #collections.col_1062 ul.collage_images li a,
+#collections.col_106 ul.collage_images li, #collections.col_106 ul.collage_images li a,
+#collections.col_4624 ul.collage_images li, #collections.col_4624 ul.collage_images li a,
+#collections.col_1049 ul.collage_images li, #collections.col_1049 ul.collage_images li a,
+#collections.col_1050 ul.collage_images li, #collections.col_1050 ul.collage_images li a,
+#collections.col_30 ul.collage_images li, #collections.col_30 ul.collage_images li a,
+#collections.col_33 ul.collage_images li, #collections.col_33 ul.collage_images li a,
+#collections.col_1106 ul.collage_images li, #collections.col_1106 ul.collage_images li a,
+#collections.col_76 ul.collage_images li, #collections.col_76 ul.collage_images li a,
+#collections.col_84 ul.collage_images li, #collections.col_84 ul.collage_images li a,
+#collections.col_102 ul.collage_images li, #collections.col_102 ul.collage_images li a,
+#collections.col_7590 ul.collage_images li, #collections.col_7590 ul.collage_images li a
+{
+	height: 140px;}
+
+
+/*****************************************
+*******************MISC*******************
+*****************************************/
+
+#main_column_bottom,
+.clearfix {
+	clear: both;}
+
+.pad {padding:10px;}
+.center {text-align: center;}
+.right {text-align: right;}
+.bold {font-weight: bold;}
+.italic {font-style: italic;}
+
+.linkbox {
+    	margin: 10px 0;
+    	text-align: center;
+    	font-size: .9em;
+	line-height: 20px;
+	width: 100%;
+	color: transparent;}
+
+.linkbox strong {
+	color: var(--white);}
+
+.linkbox a {
+	padding:0 3px;}
+
+.linkbox a strong {
+	color: var(--lightBlue);}
+
+.pager strong {
+	font-weight: normal;
+	 color: var(--white);}
+
+.min_padding {
+	margin: 5px 6px;}
+
+iframe, 
+video {
+    max-width: 100%;}
+
+.twitter-tweet {
+	margin: 0 auto !important;}
+
+.twitter_post h4 {
+	display: none;}
+
+.twitter_post {
+    display: table;}
+.twitter-tweet {
+    padding: 5px;}
+div[style="text-align:center;"] >.twitter_post {
+    margin: 5px auto !important;}
+div[style="text-align:left;"] >.twitter_post {
+    margin: 5px auto 5px 5px !important;}
+div[style="text-align:right;"] >.twitter_post {
+    margin: 5px 5px 5px auto !important;}
+
+#forums #wrapper .twitter-tweet >iframe {
+	margin: 0;
+	padding: 0;
+	filter: unset;
+	-webkit-filter: unset;}
+
+@media screen and (min-width: 801px) {
+	.twitter-tweet {
+		min-width: 550px;}
+}
+
+.donor_ico img {
+	margin-bottom: -2px;}
+
+.donation_info img {
+	padding: 0 2px 0 2px;}
+
+#rules #content img {
+	background-color: var(--white);
+	opacity: .8;
+	padding: 2px;
+	margin: 2px;}
+
+marquee {
+	max-width: 60%;}
+
+#forums .forum_post .colhead_dark div[style="float:left;"] {
+	width: 85%;}
+
+#forums .forum_post .colhead_dark td {
+	text-align: left;}
+
+.colhead_dark marquee {
+	max-width: 25%;
+	vertical-align: middle;}
+
+table.usagestats {
+    width: 33%;
+    margin: 1em;
+    float: left;}
+table.usagestats td {
+    padding: 0 0.7em;}
+
+span.checkmark { background: var(--darkGreen); }
+
+/****************************************************
+**************** USERS BIRTHDAY *********************
+****************************************************/
+.birthday #header,
+.my_birthday #header {
+    background: url('../images/birthday_confetti.png') repeat;}
+
